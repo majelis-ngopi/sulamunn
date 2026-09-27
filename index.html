@@ -1,251 +1,288 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta name="google-site-verification" content="VaOFFnvSkTVXRvHvc4HMLbb8bWoHipmB3JOWxd6KfQ4" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>على طريق سلم النيرين</title>
+    <title>Kalkulator Ijtima'</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="judul-arab">على طريق سلم النيرين</h1>
 
-        <!-- ==================================== -->
-        <!-- BAGIAN 1: AL AUJ -->
-        <!-- ==================================== -->
-        <div class="bagian">
-            <h2>الاعوج</h2>
-            <table class="tabel-kecil">
-                <thead>
-                    <tr><th>Sumber</th><th>ق Qoh</th><th>جـ Jad</th><th>ج Ja</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>السنين المجموعة</td>
-                        <td><input type="number" id="auj_p_q"></td>
-                        <td><input type="number" id="auj_p_jd"></td>
-                        <td><input type="number" id="auj_p_j"></td>
-                    </tr>
-                    <tr>
-                        <td>السنين المبسوطة</td>
-                        <td><input type="number" id="auj_s_q" value="0"></td>
-                        <td><input type="number" id="auj_s_jd" value="0"></td>
-                        <td><input type="number" id="auj_s_j" value="0"></td>
-                    </tr>
-                    <tr class="baris-bulan">
-                        <td>الشهر المطلوب</td>
-                        <td><input type="number" value="0" readonly></td>
-                        <td><input type="number" value="0" readonly></td>
-                        <td><input type="number" value="0" readonly></td>
-                    </tr>
-                    <tr class="baris-jumlah">
-                        <td>Jumlah</td>
-                        <td id="auj_jml_q">0</td>
-                        <td id="auj_jml_jd">0</td>
-                        <td id="auj_jml_j">0</td>
-                    </tr>
-                    <tr class="baris-hasil">
-                        <td>Hasil Akhir</td>
-                        <td id="auj_hasil_q">0</td>
-                        <td id="auj_hasil_jd">0</td>
-                        <td id="auj_hasil_j">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="container">
+    <h1>🌙 KALKULATOR IJTIMA'</h1>
 
-        <!-- ==================================== -->
-        <!-- BAGIAN 2: AL MARKAZ -->
-        <!-- ==================================== -->
-        <div class="bagian">
-            <h2>المركز</h2>
-            <table class="tabel-kecil">
-                <thead>
-                    <tr><th>Sumber</th><th>ق Qoh</th><th>جـ Jad</th><th>ج Ja</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>السنين المجموعة</td>
-                        <td><input type="number" id="mrk_p_q"></td>
-                        <td><input type="number" id="mrk_p_jd"></td>
-                        <td><input type="number" id="mrk_p_j"></td>
-                    </tr>
-                    <tr>
-                        <td>السنين المبسوطة</td>
-                        <td><input type="number" id="mrk_s_q" value="0"></td>
-                        <td><input type="number" id="mrk_s_jd" value="0"></td>
-                        <td><input type="number" id="mrk_s_j" value="0"></td>
-                    </tr>
-                    <tr>
-                        <td>الشهر المطلوب</td>
-                        <td><input type="number" id="mrk_b_q"></td>
-                        <td><input type="number" id="mrk_b_jd"></td>
-                        <td><input type="number" id="mrk_b_j"></td>
-                    </tr>
-                    <tr class="baris-jumlah">
-                        <td>Jumlah</td>
-                        <td id="mrk_jml_q">0</td>
-                        <td id="mrk_jml_jd">0</td>
-                        <td id="mrk_jml_j">0</td>
-                    </tr>
-                    <tr class="baris-hasil">
-                        <td>Hasil Akhir</td>
-                        <td id="mrk_hasil_q">0</td>
-                        <td id="mrk_hasil_jd">0</td>
-                        <td id="mrk_hasil_j">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="selector">
+        <select id="tahunPuluhan" onchange="hitung()">
+            <option value="">— Pilih Tahun Puluhan —</option>
+            <option value="1430">1430</option>
+            <option value="1440">1440</option>
+            <option value="1450">1450</option>
+            <option value="1460">1460</option>
+            <option value="1470">1470</option>
+            <option value="1480">1480</option>
+            <option value="1490">1490</option>
+            <option value="1500">1500</option>
+        </select>
 
-        <!-- ==================================== -->
-        <!-- BAGIAN 3: AL KHASSAH -->
-        <!-- ==================================== -->
-        <div class="bagian">
-            <h2>الخاصة</h2>
-            <table class="tabel-kecil">
-                <thead>
-                    <tr><th>Sumber</th><th>ق Qoh</th><th>جـ Jad</th><th>ج Ja</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>السنين المجموعة</td>
-                        <td><input type="number" id="khsp_p_q"></td>
-                        <td><input type="number" id="khsp_p_jd"></td>
-                        <td><input type="number" id="khsp_p_j"></td>
-                    </tr>
-                    <tr>
-                        <td>السنين المبسوطة</td>
-                        <td><input type="number" id="khsp_s_q" value="0"></td>
-                        <td><input type="number" id="khsp_s_jd" value="0"></td>
-                        <td><input type="number" id="khsp_s_j" value="0"></td>
-                    </tr>
-                    <tr>
-                        <td>الشهر المطلوب</td>
-                        <td><input type="number" id="khsp_b_q"></td>
-                        <td><input type="number" id="khsp_b_jd"></td>
-                        <td><input type="number" id="khsp_b_j"></td>
-                    </tr>
-                    <tr class="baris-jumlah">
-                        <td>Jumlah</td>
-                        <td id="khsp_jml_q">0</td>
-                        <td id="khsp_jml_jd">0</td>
-                        <td id="khsp_jml_j">0</td>
-                    </tr>
-                    <tr class="baris-hasil">
-                        <td>Hasil Akhir</td>
-                        <td id="khsp_hasil_q">0</td>
-                        <td id="khsp_hasil_jd">0</td>
-                        <td id="khsp_hasil_j">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <select id="tahunSatuan" onchange="hitung()">
+            <option value="">— Pilih Tahun Satuan —</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+        </select>
 
-        <!-- ==================================== -->
-        <!-- BAGIAN 4: AL KHOSOH -->
-        <!-- ==================================== -->
-        <div class="bagian">
-            <h2>الخصة</h2>
-            <table class="tabel-kecil">
-                <thead>
-                    <tr><th>Sumber</th><th>ق Qoh</th><th>جـ Jad</th><th>ج Ja</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>السنين المجموعة</td>
-                        <td><input type="number" id="khs_p_q"></td>
-                        <td><input type="number" id="khs_p_jd"></td>
-                        <td><input type="number" id="khs_p_j"></td>
-                    </tr>
-                    <tr>
-                        <td>السنين المبسوطة</td>
-                        <td><input type="number" id="khs_s_q" value="0"></td>
-                        <td><input type="number" id="khs_s_jd" value="0"></td>
-                        <td><input type="number" id="khs_s_j" value="0"></td>
-                    </tr>
-                    <tr>
-                        <td>الشهر المطلوب</td>
-                        <td><input type="number" id="khs_b_q"></td>
-                        <td><input type="number" id="khs_b_jd"></td>
-                        <td><input type="number" id="khs_b_j"></td>
-                    </tr>
-                    <tr class="baris-jumlah">
-                        <td>Jumlah</td>
-                        <td id="khs_jml_q">0</td>
-                        <td id="khs_jml_jd">0</td>
-                        <td id="khs_jml_j">0</td>
-                    </tr>
-                    <tr class="baris-hasil">
-                        <td>Hasil Akhir</td>
-                        <td id="khs_hasil_q">0</td>
-                        <td id="khs_hasil_jd">0</td>
-                        <td id="khs_hasil_j">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ==================================== -->
-        <!-- BAGIAN 5: AL ALAMAH -->
-        <!-- ==================================== -->
-        <div class="bagian">
-            <h2>العلامة</h2>
-            <p class="keterangan">Urutan: ق Qoh → ع Jam → م Hari</p>
-            <table class="tabel-kecil">
-                <thead>
-                    <tr><th>Sumber</th><th>ق Qoh</th><th>ع Jam</th><th>م Hari</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>السنين المجموعة</td>
-                        <td><input type="number" id="alm_p_q"></td>
-                        <td><input type="number" id="alm_p_jam"></td>
-                        <td><input type="number" id="alm_p_hari"></td>
-                    </tr>
-                    <tr>
-                        <td>السنين المبسوطة</td>
-                        <td><input type="number" id="alm_s_q" value="0"></td>
-                        <td><input type="number" id="alm_s_jam" value="0"></td>
-                        <td><input type="number" id="alm_s_hari" value="0"></td>
-                    </tr>
-                    <tr>
-                        <td>الشهر المطلوب</td>
-                        <td><input type="number" id="alm_b_q"></td>
-                        <td><input type="number" id="alm_b_jam"></td>
-                        <td><input type="number" id="alm_b_hari"></td>
-                    </tr>
-                    <tr class="baris-jumlah">
-                        <td>Jumlah</td>
-                        <td id="alm_jml_q">0</td>
-                        <td id="alm_jml_jam">0</td>
-                        <td id="alm_jml_hari">0</td>
-                    </tr>
-                    <tr class="baris-hasil">
-                        <td>Hasil Akhir</td>
-                        <td id="alm_hasil_q">0</td>
-                        <td id="alm_hasil_jam">0</td>
-                        <td id="alm_hasil_hari">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="tombol-baris">
-            <button onclick="hitungSemua()">🔢 HITUNG SEMUA</button>
-            <button onclick="kosongkan()">🗑️ KOSONGKAN SEMUA</button>
-        </div>
-
-        <div class="catatan">
-            <strong>Catatan:</strong><br>
-            • Isi angka di kotak kosong → klik HITUNG SEMUA<br>
-            • Al Auj bagian Bulan = 0 (tidak diisi)<br>
-            • Kolom dikurangi → kolom sebelah kanan +1 (di tabel itu sendiri)<br>
-            • Al Auj/Markaz/Khasah/Khosoh: Qoh≥60, Jad≥30, Ja≥12<br>
-            • Al Alamah: Qoh≥60, Jam≥24, Hari≥7
-        </div>
+        <select id="bulan" onchange="hitung()">
+            <option value="">— Pilih Bulan —</option>
+            <option value="1">Muharram</option>
+            <option value="2">Safar</option>
+            <option value="3">Rabiul Awal</option>
+            <option value="4">Rabiul Tsani</option>
+            <option value="5">Jumadi Awal</option>
+            <option value="6">Jumadil Tsani</option>
+            <option value="7">Rajab</option>
+            <option value="8">Sya'ban</option>
+            <option value="9">Ramadan</option>
+            <option value="10">Syawal</option>
+            <option value="11">Dzulqa'dah</option>
+            <option value="12">Dzulhijjah</option>
+        </select>
     </div>
-    <script src="hitung.js"></script>
+
+    <!-- 1. AUJ -->
+    <h2>📊 AUJ — Menit — Derajat — Buruj</h2>
+    <table class="bdm-tbl">
+        <thead>
+            <tr>
+                <th>Sumber</th>
+                <th>Menit (M)</th>
+                <th>Derajat (D)</th>
+                <th>Buruj (B)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tahun Puluhan</td>
+                <td id="au_p_m">-</td>
+                <td id="au_p_d">-</td>
+                <td id="au_p_b">-</td>
+            </tr>
+            <tr>
+                <td>Tahun Satuan</td>
+                <td id="au_s_m">-</td>
+                <td id="au_s_d">-</td>
+                <td id="au_s_b">-</td>
+            </tr>
+            <tr>
+                <td>Bulan</td>
+                <td id="au_b_m">-</td>
+                <td id="au_b_d">-</td>
+                <td id="au_b_b">-</td>
+            </tr>
+            <tr class="jumlah">
+                <td>Jumlah</td>
+                <td id="au_sum_m">0</td>
+                <td id="au_sum_d">0</td>
+                <td id="au_sum_b">0</td>
+            </tr>
+            <tr class="hasil">
+                <td>Hasil Akhir</td>
+                <td id="au_res_m">-</td>
+                <td id="au_res_d">-</td>
+                <td id="au_res_b">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 2. MARKAZ -->
+    <h2>📊 MARKAZ — Menit — Derajat — Buruj</h2>
+    <table class="bdm-tbl">
+        <thead>
+            <tr>
+                <th>Sumber</th>
+                <th>Menit (M)</th>
+                <th>Derajat (D)</th>
+                <th>Buruj (B)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tahun Puluhan</td>
+                <td id="m_p_m">-</td>
+                <td id="m_p_d">-</td>
+                <td id="m_p_b">-</td>
+            </tr>
+            <tr>
+                <td>Tahun Satuan</td>
+                <td id="m_s_m">-</td>
+                <td id="m_s_d">-</td>
+                <td id="m_s_b">-</td>
+            </tr>
+            <tr>
+                <td>Bulan</td>
+                <td id="m_b_m">-</td>
+                <td id="m_b_d">-</td>
+                <td id="m_b_b">-</td>
+            </tr>
+            <tr class="jumlah">
+                <td>Jumlah</td>
+                <td id="m_sum_m">0</td>
+                <td id="m_sum_d">0</td>
+                <td id="m_sum_b">0</td>
+            </tr>
+            <tr class="hasil">
+                <td>Hasil Akhir</td>
+                <td id="m_res_m">-</td>
+                <td id="m_res_d">-</td>
+                <td id="m_res_b">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 3. KHOSSOH -->
+    <h2>📊 KHOSSOH — Menit — Derajat — Buruj</h2>
+    <table class="bdm-tbl">
+        <thead>
+            <tr>
+                <th>Sumber</th>
+                <th>Menit (M)</th>
+                <th>Derajat (D)</th>
+                <th>Buruj (B)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tahun Puluhan</td>
+                <td id="k_p_m">-</td>
+                <td id="k_p_d">-</td>
+                <td id="k_p_b">-</td>
+            </tr>
+            <tr>
+                <td>Tahun Satuan</td>
+                <td id="k_s_m">-</td>
+                <td id="k_s_d">-</td>
+                <td id="k_s_b">-</td>
+            </tr>
+            <tr>
+                <td>Bulan</td>
+                <td id="k_b_m">-</td>
+                <td id="k_b_d">-</td>
+                <td id="k_b_b">-</td>
+            </tr>
+            <tr class="jumlah">
+                <td>Jumlah</td>
+                <td id="k_sum_m">0</td>
+                <td id="k_sum_d">0</td>
+                <td id="k_sum_b">0</td>
+            </tr>
+            <tr class="hasil">
+                <td>Hasil Akhir</td>
+                <td id="k_res_m">-</td>
+                <td id="k_res_d">-</td>
+                <td id="k_res_b">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 4. HISSOH -->
+    <h2>📊 HISSOH — Menit — Derajat — Buruj</h2>
+    <table class="bdm-tbl">
+        <thead>
+            <tr>
+                <th>Sumber</th>
+                <th>Menit (M)</th>
+                <th>Derajat (D)</th>
+                <th>Buruj (B)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tahun Puluhan</td>
+                <td id="h_p_m">-</td>
+                <td id="h_p_d">-</td>
+                <td id="h_p_b">-</td>
+            </tr>
+            <tr>
+                <td>Tahun Satuan</td>
+                <td id="h_s_m">-</td>
+                <td id="h_s_d">-</td>
+                <td id="h_s_b">-</td>
+            </tr>
+            <tr>
+                <td>Bulan</td>
+                <td id="h_b_m">-</td>
+                <td id="h_b_d">-</td>
+                <td id="h_b_b">-</td>
+            </tr>
+            <tr class="jumlah">
+                <td>Jumlah</td>
+                <td id="h_sum_m">0</td>
+                <td id="h_sum_d">0</td>
+                <td id="h_sum_b">0</td>
+            </tr>
+            <tr class="hasil">
+                <td>Hasil Akhir</td>
+                <td id="h_res_m">-</td>
+                <td id="h_res_d">-</td>
+                <td id="h_res_b">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 5. ALAMAH — DIBALIK: M → J → H -->
+    <h2>📅 ALAMAH — Menit — Jam — Hari</h2>
+    <table class="alamah-tbl">
+        <thead>
+            <tr>
+                <th>Sumber</th>
+                <th>Menit (M)</th>
+                <th>Jam (J)</th>
+                <th>Hari (H)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tahun Puluhan</td>
+                <td id="a_pm">-</td>
+                <td id="a_pj">-</td>
+                <td id="a_ph">-</td>
+            </tr>
+            <tr>
+                <td>Tahun Satuan</td>
+                <td id="a_sm">-</td>
+                <td id="a_sj">-</td>
+                <td id="a_sh">-</td>
+            </tr>
+            <tr>
+                <td>Bulan</td>
+                <td id="a_bm">-</td>
+                <td id="a_bj">-</td>
+                <td id="a_bh">-</td>
+            </tr>
+            <tr class="jumlah">
+                <td>Jumlah</td>
+                <td id="a_summ">0</td>
+                <td id="a_sumj">0</td>
+                <td id="a_sumh">0</td>
+            </tr>
+            <tr class="hasil">
+                <td>Hasil Akhir</td>
+                <td id="a_res_m">-</td>
+                <td id="a_res_j">-</td>
+                <td id="a_res_h">-</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
