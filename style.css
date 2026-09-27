@@ -1,108 +1,83 @@
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: sans-serif;
 }
+
 body {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 20px;
     background: #f0f4f8;
+    padding: 20px;
 }
+
 .container {
-    background: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-.judul-arab {
+
+h1 {
     text-align: center;
-    font-size: 24px;
-    margin: 0 0 30px;
+    color: #2c3e50;
+    margin-bottom: 25px;
 }
-.bagian {
-    margin-bottom: 30px;
-    border-bottom: 2px dashed #ddd;
-    padding-bottom: 20px;
+
+h2 {
+    font-size: 17px;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+    margin: 30px 0 12px;
 }
-.bagian h2 {
-    margin: 0 0 10px;
-    font-size: 20px;
-    color: #2b6cb0;
+
+.selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
 }
-.keterangan {
-    margin: 5px 0 10px;
-    color: #666;
-    font-style: italic;
-}
-.tabel-kecil {
+
+select {
     width: 100%;
-    border-collapse: collapse;
-}
-.tabel-kecil th,
-.tabel-kecil td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
-}
-.tabel-kecil th {
-    background: #e9ecef;
-}
-.tabel-kecil input {
-    width: 80px;
-    padding: 6px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    text-align: center;
+    padding: 12px;
     font-size: 16px;
-}
-.tabel-kecil input[readonly] {
-    background: #eee;
-    color: #888;
-}
-.baris-bulan td {
-    background: #f8f9fa;
-}
-.baris-jumlah {
-    background: #f0f4f8;
-    font-weight: 600;
-}
-.baris-hasil {
-    background: #d1e7dd;
-    font-weight: bold;
-    font-size: 17px;
-}
-.tombol-baris {
-    text-align: center;
-    margin: 20px 0;
-}
-button {
-    padding: 14px 28px;
-    margin: 0 8px;
-    border: none;
+    border: 2px solid #3498db;
     border-radius: 8px;
-    font-size: 17px;
-    font-weight: bold;
     cursor: pointer;
 }
-button:first-child {
-    background: #2b6cb0;
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 15px;
+}
+
+th {
+    background: #3498db;
     color: white;
 }
-button:first-child:hover {
-    background: #2c5282;
-}
-button:last-child {
-    background: #e53e3e;
-    color: white;
-}
-button:last-child:hover {
-    background: #c53030;
-}
-.catatan {
-    margin-top: 20px;
-    padding: 15px;
+
+td:first-child {
+    text-align: left;
+    font-weight: bold;
     background: #f8f9fa;
-    border-radius: 8px;
-    line-height: 1.8;
-    font-size: 14px;
+    width: 35%;
+}
+
+.jumlah td {
+    background: #fff3cd;
+    font-weight: bold;
+}
+
+.hasil td {
+    background: #d4edda;
+    font-weight: bold;
 }
